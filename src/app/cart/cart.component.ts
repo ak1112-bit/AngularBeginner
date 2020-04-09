@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { FormBuilder, FormsModule, FormControl, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -12,9 +11,11 @@ export class CartComponent implements OnInit {
   items;
   checkoutForm;
 
+
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
+    private formModule: FormsModule,
   ) {
     this.checkoutForm = this.formBuilder.group({
       name: '',
@@ -32,5 +33,11 @@ export class CartComponent implements OnInit {
 
     console.warn('Your order has been submitted', customerData);
   }
+  // getErrorMessage() {
+  //   if (this.email.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
 
+  //   return this.email.hasError('email') ? 'Not a valid email' : '';
+  // }
 }

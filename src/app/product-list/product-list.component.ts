@@ -11,9 +11,9 @@ export class ProductListComponent {
   products = products;
 
   share() {
-    window.alert('The product has been shared!');
+    window.alert('共有しました');
   }
   onNotify() {
-    window.alert('You will be notified when the product goes on sale');
+    window.alert('販売が開始されたら通知します');
   }
 }
