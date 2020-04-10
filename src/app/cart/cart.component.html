@@ -10,36 +10,39 @@
 </div>
 
 <form
-  [formGroup]="checkoutForm"
-  (ngSubmit)="onSubmit(checkoutForm.value)"
+  [formGroup]="editForm"
+  (ngSubmit)="onSubmit(editForm.value)"
   class="example-form"
 >
   <div>
     <mat-form-field class="example-full-width">
-      <mat-label>Name</mat-label>
+      <mat-label>NAME</mat-label>
       <input
         matInput
         placeholder="hoge"
-        value="hoge hoge"
         id="name"
         formControlName="name"
+        required
       />
+      <mat-error
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+      ></mat-error>
     </mat-form-field>
   </div>
 
   <div>
-    <mat-form-field class="example-full-width" appearance="fill"
-      >
-      <mat-label> ADDRESS </mat-label>
+    <mat-form-field class="example-full-width">
+      <mat-label>ADDRESS</mat-label>
       <input
         matInput
         placeholder="test@example.com"
         formControlName="address"
         id="address"
-
         required
       />
-      <!-- <mat-error *ngIf="address.invalid">{{ getErrorMessage() }}</mat-error> -->
+      <mat-error
+        *ngIf="address.invalid && (address.dirty || address.touched)"
+      ></mat-error>
     </mat-form-field>
   </div>
 
